@@ -33,7 +33,6 @@
     "@nrwl/cypress": "16.2.2",
     "@nrwl/eslint-plugin-nx": "16.2.2",
     "@nrwl/jest": "16.2.2",
-    "@nrwl/js": "16.2.2",
     "@nrwl/web": "16.2.2",
     "@schematics/angular": "16.0.3",
     "@types/jest": "^29.4.0",
@@ -54,6 +53,7 @@
     "typescript": "5.0.4",
     "nx-cloud": "16.0.5",
     "@nx/workspace": "16.2.2",
-    "@nx/linter": "16.2.2"
+    "@nx/linter": "16.2.2",
+    "@nx/js": "16.2.2"
   }
 }
