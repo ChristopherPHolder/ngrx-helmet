@@ -2,7 +2,9 @@
   "name": "ngrx-helmet",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "serve:demo": "nx run demo-ngrx-helmet:serve"
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~15.2.0",
