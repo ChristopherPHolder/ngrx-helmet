@@ -30,7 +30,6 @@
     "@angular/cli": "~15.2.0",
     "@angular/compiler-cli": "16.0.3",
     "@angular/language-service": "16.0.3",
-    "@nrwl/eslint-plugin-nx": "16.2.2",
     "@nrwl/jest": "16.2.2",
     "@nrwl/web": "16.2.2",
     "@schematics/angular": "16.0.3",
@@ -54,6 +53,7 @@
     "@nx/workspace": "16.2.2",
     "@nx/linter": "16.2.2",
     "@nx/js": "16.2.2",
-    "@nx/cypress": "16.2.2"
+    "@nx/cypress": "16.2.2",
+    "@nx/eslint-plugin": "16.2.2"
   }
 }
