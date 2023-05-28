@@ -1,4 +1,4 @@
-import { getContentTitle, getMetaDescription } from '../support/app.po';
+import { getContentTitle, getMetaTitle } from '../support/app.po';
 
 import * as routeData from '../fixtures/route-data.json';
 
@@ -15,7 +15,7 @@ describe("demo-ngrx-helmet", () => {
   it("should display display the meta description on initial navigation", () => {
     routeData.map((data) => {
       cy.visit(data.path);
-      getMetaDescription().should('have.attr', 'content', data.title);
+      getMetaTitle().should('have.attr', 'content', data.title);
     });
   });
 });

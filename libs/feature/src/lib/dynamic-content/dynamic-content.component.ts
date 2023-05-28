@@ -1,4 +1,4 @@
-import { Component, DoCheck, inject, OnInit } from '@angular/core';
+import { Component, DoCheck, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
@@ -16,12 +16,12 @@ export class DynamicContentComponent implements DoCheck {
   public readonly title = inject(ActivatedRoute).title.pipe(
     filter((title) => title != undefined),
     tap((title) =>
-      setTimeout(() => this.metaService.updateTag({ name: 'description', content: title as string }), 1_000)
+      setTimeout(() => this.metaService.updateTag({ name: 'title', content: title as string }), 1_000)
       ));
 
   public metaDesc = '';
 
   ngDoCheck() {
-    this.metaDesc =  document.querySelector<any>('meta[name="description"]')?.content;
+    this.metaDesc =  document.querySelector<any>('meta[name="title"]')?.content;
   }
 }

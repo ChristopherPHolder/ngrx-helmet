@@ -14,11 +14,10 @@ import { tap } from 'rxjs';
 export class StaticContentComponent implements DoCheck {
   private metaService = inject(Meta);
   public readonly title = inject(ActivatedRoute).title.pipe(
-    tap((title) => console.log(title)),
-    tap((title) => this.metaService.updateTag({ name:'description', content: title as string}))
+    tap((title) => this.metaService.updateTag({ name:'title', content: title as string}))
   );
   public metaDesc = '';
   ngDoCheck() {
-    this.metaDesc =  document.querySelector<any>('meta[name="description"]')?.content;
+    this.metaDesc =  document.querySelector<any>('meta[name="title"]')?.content;
   }
 }
