@@ -1,8 +1,6 @@
-import { Component, DoCheck, inject, OnInit } from '@angular/core';
+import { Component, DoCheck, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
-import { tap } from 'rxjs';
 
 @Component({
   selector: 'ngrx-helmet-static-content',
@@ -12,10 +10,7 @@ import { tap } from 'rxjs';
   styles: [],
 })
 export class StaticContentComponent implements DoCheck {
-  private metaService = inject(Meta);
-  public readonly title = inject(ActivatedRoute).title.pipe(
-    tap((title) => this.metaService.updateTag({ name:'title', content: title as string}))
-  );
+  public readonly title = inject(ActivatedRoute).title;
   public metaDesc = '';
   ngDoCheck() {
     this.metaDesc =  document.querySelector<any>('meta[name="title"]')?.content;

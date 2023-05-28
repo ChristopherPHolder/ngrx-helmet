@@ -9,6 +9,7 @@ export const featureRoutes: Route[] = [
     title: 'Root Route With Static Content Demo',
     data: {
       meta: {
+        title: 'Root Route With Static Content Demo',
         description: 'Test static-content'
       }
     }
@@ -19,6 +20,7 @@ export const featureRoutes: Route[] = [
     title: 'Root Route With Dynamic Content Demo',
     data: {
       meta: {
+        title: 'Root Route With Dynamic Content Demo',
         description: 'Test dynamic-content'
       }
     }
@@ -32,6 +34,7 @@ export const featureRoutes: Route[] = [
         title: 'First Child Route With Static Content Demo',
         data: {
           meta: {
+            title: 'First Child Route With Static Content Demo',
             description: 'Test sub static-content'
           }
         }
@@ -42,6 +45,7 @@ export const featureRoutes: Route[] = [
         title: 'First Child Route With Dynamic Content Demo',
         data: {
           meta: {
+            title: 'First Child Route With Dynamic Content Demo',
             description: 'Test sub dynamic-content'
           }
         }
@@ -55,6 +59,7 @@ export const featureRoutes: Route[] = [
             title: 'Second Child Route With Static Content Demo',
             data: {
               meta: {
+                title: 'Second Child Route With Static Content Demo',
                 description: 'Test sub sub static-content'
               }
             }
@@ -65,6 +70,7 @@ export const featureRoutes: Route[] = [
             title: 'Second Child Route With Dynamic Content Demo',
             data: {
               meta: {
+                title: 'Second Child Route With Dynamic Content Demo',
                 description: 'Test sub sub dynamic-content'
               }
             }
