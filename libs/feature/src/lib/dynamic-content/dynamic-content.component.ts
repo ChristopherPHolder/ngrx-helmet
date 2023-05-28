@@ -1,15 +1,17 @@
-import { ApplicationRef, Component, DoCheck, inject, OnInit } from '@angular/core';
+import { Component, DoCheck, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'ngrx-helmet-dynamic-content',
   standalone: true,
   imports: [CommonModule],
-  template: `<p>dynamic-content works!</p> <p>{{metaDesc}}</p>`,
+  template: `<h1>{{ title | async }}</h1> <p>{{metaDesc}}</p>`,
   styles: [],
 })
 export class DynamicContentComponent implements OnInit, DoCheck {
+  public readonly title = inject(ActivatedRoute).title;
   private metaService = inject(Meta);
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore

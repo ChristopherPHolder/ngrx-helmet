@@ -17,6 +17,20 @@ mat-toolbar-row {
   text-align: end;
 }
 
-.sidenav-container { height: 100%; }
-.sidenav { width: min-content; }
-.sidenav { background: inherit; }
+.sidenav-container {
+  height: 100%;
+}
+
+.sidenav {
+  width: min-content;
+}
+
+.sidenav {
+  background: inherit;
+}
+
+mat-sidenav-content {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
