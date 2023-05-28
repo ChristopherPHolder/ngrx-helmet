@@ -2,6 +2,7 @@ import { Component, DoCheck, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Meta } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
+import { filter, tap } from 'rxjs';
 
 @Component({
   selector: 'ngrx-helmet-dynamic-content',
@@ -10,21 +11,17 @@ import { ActivatedRoute } from '@angular/router';
   template: `<h1>{{ title | async }}</h1> <p>{{metaDesc}}</p>`,
   styles: [],
 })
-export class DynamicContentComponent implements OnInit, DoCheck {
-  public readonly title = inject(ActivatedRoute).title;
+export class DynamicContentComponent implements DoCheck {
   private metaService = inject(Meta);
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  public metaDesc: string | null = document.querySelector('meta[name="description"]')?.content;
-  ngOnInit() {
-    setTimeout(()=> {
-      this.metaService.updateTag({ name:'description',content:"Dynamic Content Meta Description"});
-    }, 1_000);
-  }
+  public readonly title = inject(ActivatedRoute).title.pipe(
+    filter((title) => title != undefined),
+    tap((title) =>
+      setTimeout(() => this.metaService.updateTag({ name: 'description', content: title as string }), 1_000)
+      ));
+
+  public metaDesc = '';
 
   ngDoCheck() {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    this.metaDesc =  document.querySelector('meta[name="description"]')?.content;
+    this.metaDesc =  document.querySelector<any>('meta[name="description"]')?.content;
   }
 }

@@ -1,13 +1,46 @@
-import { getGreeting } from "../support/app.po";
+import { getContentTitle, getMetaDescription } from '../support/app.po';
 
 describe("demo-ngrx-helmet", () => {
-  beforeEach(() => cy.visit("/"));
+  before(() => cy.visit("/"));
 
-  it("should display welcome message", () => {
-    // Custom command example, see `../support/commands.ts` file
-    cy.login("my-email@something.com", "myPassword");
+  it("should display display the h1 title on initial navigation", () => {
+    cy.visit('/static-content');
+    getContentTitle().contains('Root Route With Static Content Demo');
 
-    // Function helper example, see `../support/app.po.ts` file
-    getGreeting().contains("Welcome demo-ngrx-helmet");
+    cy.visit('/dynamic-content');
+    getContentTitle().contains('Root Route With Dynamic Content Demo');
+
+    cy.visit('/sub-route/static-content');
+    getContentTitle().contains('First Child Route With Static Content Demo');
+
+    cy.visit('/sub-route/dynamic-content');
+    getContentTitle().contains('First Child Route With Dynamic Content Demo');
+
+    cy.visit('/sub-route/sub-route/static-content');
+    getContentTitle().contains('Second Child Route With Static Content Demo');
+
+    cy.visit('/sub-route/sub-route/dynamic-content');
+    getContentTitle().contains('Second Child Route With Dynamic Content Demo');
+  });
+
+
+  it("should display display the meta description on initial navigation", () => {
+    cy.visit('/static-content');
+    getMetaDescription().should('have.attr', 'content', 'Root Route With Static Content Demo');
+
+    cy.visit('/dynamic-content');
+    getMetaDescription().should('have.attr', 'content', 'Root Route With Dynamic Content Demo');
+
+    cy.visit('/sub-route/static-content');
+    getMetaDescription().should('have.attr', 'content', 'First Child Route With Static Content Demo');
+
+    cy.visit('/sub-route/dynamic-content');
+    getMetaDescription().should('have.attr', 'content', 'First Child Route With Dynamic Content Demo');
+
+    cy.visit('/sub-route/sub-route/static-content');
+    getMetaDescription().should('have.attr', 'content', 'Second Child Route With Static Content Demo');
+
+    cy.visit('/sub-route/sub-route/dynamic-content');
+    getMetaDescription().should('have.attr', 'content', 'Second Child Route With Dynamic Content Demo');
   });
 });
