@@ -1,3 +1,22 @@
+mat-toolbar-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.start {
+  flex: 1;
+}
+
+.middle {
+  flex: 1;
+  text-align: center;
+}
+
+.end {
+  flex: 1;
+  text-align: end;
+}
+
 .sidenav-container { height: 100%; }
-.sidenav { width: 200px; }
+.sidenav { width: min-content; }
 .sidenav { background: inherit; }
