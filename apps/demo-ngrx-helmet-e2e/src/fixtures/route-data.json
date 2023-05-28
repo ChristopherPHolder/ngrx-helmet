@@ -1,0 +1,26 @@
+[
+  {
+    "path": "/static-content",
+    "title": "Root Route With Static Content Demo"
+  },
+  {
+    "path": "/dynamic-content",
+    "title": "Root Route With Dynamic Content Demo"
+  },
+  {
+    "path": "/sub-route/static-content",
+    "title": "First Child Route With Static Content Demo"
+  },
+  {
+    "path": "/sub-route/dynamic-content",
+    "title": "First Child Route With Dynamic Content Demo"
+  },
+  {
+    "path": "/sub-route/sub-route/static-content",
+    "title": "Second Child Route With Static Content Demo"
+  },
+  {
+    "path": "/sub-route/sub-route/dynamic-content",
+    "title": "Second Child Route With Dynamic Content Demo"
+  }
+]
